@@ -1,0 +1,119 @@
+name: travenor_app
+description: "A new Flutter project."
+
+
+publish_to: 'none' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+
+
+
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  
+  
+  cupertino_icons: ^1.0.8
+  flutter_bloc:
+  iconsax:
+  flutter_svg:
+  equatable:
+  otp_text_field:
+  gap:
+  smooth_page_indicator:
+  dots_indicator:
+  flutter_otp_text_field:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  
+  
+  
+  
+  
+  flutter_lints: ^4.0.0
+
+
+
+
+
+flutter:
+
+  
+  
+  
+  uses-material-design: true
+
+  assets:
+    - asset/images/png/image/onboarding_images/
+    - asset/images/png/icons/
+    - asset/images/png/icons/social_media_icons/
+
+
+
+  fonts:
+    - family: Geometr415BlkBTFont
+      fonts:
+        - asset: asset/font/ufonts.com_geometr415-blk-bt-black.ttf
+
+    - family: GillSansMT
+      fonts:
+        - asset: asset/font/gillsansmt.ttf
+
+    - family: SFUIDisplayRegular
+      fonts:
+        - asset: asset/font/FontsFree-Net-SF-UI-Display-Regular-1.ttf
+
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
