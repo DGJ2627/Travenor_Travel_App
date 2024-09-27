@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:travenor_app/src/feature/login_system/forgot_password/presntatiion/forgot_password_cubit.dart';
-import 'package:travenor_app/src/feature/login_system/login/presntation/login_screen_view/login_screen_view.dart';
 import 'package:travenor_app/src/feature/login_system/otp_verification_screen/persntation/otp_verification_screen.dart';
 import 'package:travenor_app/src/utils/constant/imagepath_constant/imagepath_constant.dart';
 import '../../../../utils/helper/size_helper/size_helper.dart';

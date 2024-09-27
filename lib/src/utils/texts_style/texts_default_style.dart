@@ -66,5 +66,11 @@ class TextDefaultStyle {
       fontWeight: FontWeight.w600,
       color: Color(0xff000000),
     ),
+    labelSmall: TextStyle(
+      fontFamily: "SFUIDisplayRegular",
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: Color(0xff0D6EFD),
+    ),
   );
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
+import 'package:travenor_app/src/feature/bottom_navigation/persntation/bottom_navigation_screen.dart';
 import 'package:travenor_app/src/feature/login_system/otp_verification_screen/persntation/otp_verification_cubit.dart';
 import '../../../../utils/helper/size_helper/size_helper.dart';
 import '../../../../utils/texts/default_app_texts.dart';
@@ -117,39 +119,56 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 btnHeight: 56,
                 btnWidth: width,
                 btnName: DefaultAppTexts.defaultAppTexts.otpVerificationBtn,
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                      context, BottomNavigationScreen.routeName);
+                },
               ),
               const Gap(20),
 
               //otp second
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      DefaultAppTexts.defaultAppTexts.otpVerificationResend,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    BlocBuilder<OtpVerificationCubit, OtpVerificationState>(
-                      builder: (context, state) {
-                        if (state is OtpVerificationSendCode) {
-                          return Text(
-                            '00:${state.timerValue.toString().padLeft(2, '0')}',
+              BlocBuilder<OtpVerificationCubit, OtpVerificationState>(
+                builder: (context, state) {
+                  if (state is OtpVerificationSendCode) {
+                    int minutes = state.timerValue ~/ 60;
+                    int seconds = state.timerValue % 60;
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            DefaultAppTexts
+                                .defaultAppTexts.otpVerificationResend,
                             style: Theme.of(context).textTheme.headlineSmall,
-                          );
-                        } else if (state is OtpVerificationExpired) {
-                          return Text(
-                            'Time expired',
+                          ),
+                          Text(
+                            '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}',
                             style: Theme.of(context).textTheme.headlineSmall,
-                          );
-                        } else {
-                          return const SizedBox.shrink();
-                        }
-                      },
-                    ),
-                  ],
-                ),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else if (state is OtpVerificationExpired) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: ElevatedButton(
+                        style: const ButtonStyle(
+                            backgroundColor:
+                                WidgetStatePropertyAll(Colors.white)),
+                        onPressed: () {
+                          context.read<OtpVerificationCubit>().startTime();
+                        },
+                        child: Text(
+                          'Resend',
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                      ),
+                    );
+                  } else {
+                    return const SizedBox.shrink();
+                  }
+                },
               ),
             ],
           ),

@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:travenor_app/src/feature/bottom_navigation/persntation/bottom_navigation_cubit.dart';
+import 'package:travenor_app/src/feature/bottom_navigation/persntation/bottom_navigation_screen.dart';
 import 'package:travenor_app/src/feature/login_system/forgot_password/presntatiion/forgot_password_screen.dart';
 import 'package:travenor_app/src/feature/login_system/login/presntation/login_screen_view/login_screen_view.dart';
 import 'package:travenor_app/src/feature/login_system/otp_verification_screen/persntation/otp_verification_screen.dart';
@@ -14,5 +16,6 @@ class AppRoute {
         SignUpScreen.routeName: SignUpScreen.builder,
         ForgotPasswordScreen.routeName: ForgotPasswordScreen.builder,
         OtpVerificationScreen.routeName: OtpVerificationScreen.builder,
+        BottomNavigationScreen.routeName: BottomNavigationScreen.builder,
       };
 }

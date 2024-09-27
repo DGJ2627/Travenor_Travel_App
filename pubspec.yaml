@@ -44,6 +44,7 @@ dependencies:
   smooth_page_indicator:
   dots_indicator:
   flutter_otp_text_field:
+  animated_bottom_navigation_bar: 
 
 dev_dependencies:
   flutter_test:

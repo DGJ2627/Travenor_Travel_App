@@ -6,12 +6,12 @@ import 'package:equatable/equatable.dart';
 part 'otp_verification_state.dart';
 
 class OtpVerificationCubit extends Cubit<OtpVerificationState> {
-  OtpVerificationCubit() : super(const OtpVerificationInitial(timerValue: 60));
+  OtpVerificationCubit() : super(const OtpVerificationInitial(timerValue: 10));
   Timer? _timer;
 
   Future<void> startTime() async {
     _timer?.cancel();
-    emit(const OtpVerificationInitial(timerValue: 60));
+    emit(const OtpVerificationInitial(timerValue: 10));
 
     _timer = Timer.periodic(
       const Duration(seconds: 1),
